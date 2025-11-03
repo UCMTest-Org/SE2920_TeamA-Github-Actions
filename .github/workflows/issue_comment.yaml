@@ -1,0 +1,14 @@
+name: issue-comment-workflow
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  print-comment-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Issue and Comment
+        run: |
+          echo "Issue Number: ${{ github.event.issue.number }}"
+          echo "Comment Text: ${{ github.event.comment.body }}"
